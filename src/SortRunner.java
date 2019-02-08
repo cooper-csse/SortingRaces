@@ -113,7 +113,7 @@ public class SortRunner {
 	/**
 	 * Copies from an int array to an Integer array.
 	 *
-	 * @param randomIntArray
+	 * @param ints
 	 * @return A clone of the primitive int array, but with Integer objects.
 	 */
 	private static Integer[] copyToIntegerArray(int[] ints) {
