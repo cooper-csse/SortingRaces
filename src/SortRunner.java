@@ -19,13 +19,17 @@ public class SortRunner {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		long startTimeFull, elapsedTimeFull;
+
 		// array size must be an int. You will need to use something much larger
-		int size = 100;
+		int size = 1000000;
 		
 		// Each integer will have the range from [0, maxValue). If this is significantly higher than size, you
 		// will have small likelihood of getting duplicates.
 		int maxValue = Integer.MAX_VALUE; 
-		
+
+		startTimeFull = System.currentTimeMillis();
+
 		// Test 1: Array of random values.
 		int[] randomIntArray = getRandomIntArray(size, maxValue);
 		runAllSortsForOneArray(randomIntArray, " - Random");
@@ -38,6 +42,9 @@ public class SortRunner {
 
 		int[] almostSortedReverseIntArray = getAlmostSortedReverseIntArray(size);
 		runAllSortsForOneArray(almostSortedReverseIntArray, "\n - Almost Sorted Reverse");
+
+		elapsedTimeFull = System.currentTimeMillis() - startTimeFull;
+		System.out.printf("\nAll sorting methods completed in:\n    %d milliseconds\n", elapsedTimeFull);
 	}
 
 	/**
@@ -47,7 +54,7 @@ public class SortRunner {
 	 * @param array
 	 */
 	private static void runAllSortsForOneArray(int[] array, String name) {
-		long startTime, elapsedTime; 
+		long startTime, elapsedTime;
 		boolean isSorted = false;
 
 		// TODO: Read this.
@@ -65,7 +72,7 @@ public class SortRunner {
 		int size = array.length;
 
 		System.out.println(name + " Integer Array:");
-		
+
 		// What is the default sort for ints? Read the javadoc.
 		startTime = System.currentTimeMillis();  
 		Arrays.sort(sortedIntsUsingDefaultSort); 
