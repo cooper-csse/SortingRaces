@@ -71,14 +71,14 @@ public class SortRunner {
 		Arrays.sort(sortedIntsUsingDefaultSort); 
 		elapsedTime = (System.currentTimeMillis() - startTime);
 		isSorted = verifySort(sortedIntsUsingDefaultSort);
-		displayResults("int", "the default sort", elapsedTime, size, isSorted);
+		displayResults("int", "DefaultSort", elapsedTime, size, isSorted);
 		
 		// What is the default sort for Integers (which are objects that wrap ints)?
 		startTime = System.currentTimeMillis();  
 		Arrays.sort(sortedIntegersUsingDefaultSort); 
 		elapsedTime = (System.currentTimeMillis() - startTime);
 		isSorted = verifySort(sortedIntegersUsingDefaultSort);
-		displayResults("Integer", "the default sort", elapsedTime, size, isSorted);
+		displayResults("Integer", "DefaultSort", elapsedTime, size, isSorted);
 
 		// Sort using the following methods, and time and verify each like done above. 
 		// TODO: a simple sort that uses a TreeSet but handles a few duplicates gracefully. 
@@ -92,7 +92,7 @@ public class SortRunner {
 
 	private static void displayResults(String typeName, String sortName, long elapsedTime, int size,  boolean isSorted) {
 		if (isSorted) {
-			System.out.printf("Sorted %.1e %ss using %s in %d milliseconds\n", (double)size, typeName, sortName, elapsedTime);
+			System.out.printf("Sorted %.1e using %s<%s> in:\n    %d milliseconds\n", (double)size, sortName, typeName, elapsedTime);
 		} else {
 			System.out.println("ARRAY NOT SORTED");
 		}
