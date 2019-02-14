@@ -20,7 +20,7 @@ public class SortRunner {
 	 */
 	public static void main(String[] args) {
 		// array size must be an int. You will need to use something much larger
-		int size = 100; 
+		int size = 100;
 		
 		// Each integer will have the range from [0, maxValue). If this is significantly higher than size, you
 		// will have small likelihood of getting duplicates.
@@ -32,6 +32,9 @@ public class SortRunner {
 
 		int[] shuffledIntArray = getShuffledIntArray(size);
 		runAllSortsForOneArray(shuffledIntArray, "\nShuffled");
+
+		int[] almostSortedIntArray = getAlmostSortedIntArray(size);
+		runAllSortsForOneArray(almostSortedIntArray, "\nAlmost Sorted");
 	}
 
 	/**
@@ -153,6 +156,19 @@ public class SortRunner {
 		for (int i = 0; i < size; i++) list.add(i);
 		Collections.shuffle(list);
 		for (int i = 0; i < size; i++) a[i] = list.get(i);
+		return a;
+	}
+
+	private static int[] getAlmostSortedIntArray(int size) {
+		int[] a = new int[size];
+		for (int i = 0; i < size; i++) a[i] = i;
+		for (int r = 0; r < size / 100.0; r++) {
+			int index1 = rand.nextInt(size), index2;
+			do index2 = rand.nextInt(size); while (index1 == index2);
+			int item = a[index1];
+			a[index1] = a[index2];
+			a[index2] = item;
+		}
 		return a;
 	}
 
