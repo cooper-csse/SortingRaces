@@ -94,11 +94,8 @@ public class SortRunner {
 	
 
 	private static void displayResults(String typeName, String sortName, long elapsedTime, int size,  boolean isSorted) {
-		if (isSorted) {
-			System.out.printf("Sorted %.1e using %s<%s> in:\n    %d milliseconds\n", (double)size, sortName, typeName, elapsedTime);
-		} else {
-			System.out.println("ARRAY NOT SORTED");
-		}
+		if (isSorted) System.out.printf("Sorted %.1e using %s<%s> in:\n    %d milliseconds\n", (double)size, sortName, typeName, elapsedTime);
+		else System.out.printf("ARRAY NOT SORTED using %s<%s>\n", sortName, typeName);
 	}
 	
 	/**
