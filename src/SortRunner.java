@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 
@@ -26,12 +28,10 @@ public class SortRunner {
 		
 		// Test 1: Array of random values.
 		int[] randomIntArray = getRandomIntArray(size, maxValue);
-		runAllSortsForOneArray(randomIntArray);
+		runAllSortsForOneArray(randomIntArray, "Random");
 
-		// TODO: Tests 2-4
-		// Generate the three other types of arrays (shuffled, almost sorted, almost reverse sorted)
-		// and run the sorts on those as well.
-
+		int[] shuffledIntArray = getShuffledIntArray(size);
+		runAllSortsForOneArray(shuffledIntArray, "\nShuffled");
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class SortRunner {
 	 *
 	 * @param array
 	 */
-	private static void runAllSortsForOneArray(int[] array) {
+	private static void runAllSortsForOneArray(int[] array, String name) {
 		long startTime, elapsedTime; 
 		boolean isSorted = false;
 
@@ -57,6 +57,8 @@ public class SortRunner {
 		int[] sortedIntsUsingQuickSort = array.clone();
 
 		int size = array.length;
+
+		System.out.println(name + " Integer Array:");
 		
 		// What is the default sort for ints? Read the javadoc.
 		startTime = System.currentTimeMillis();  
@@ -142,6 +144,15 @@ public class SortRunner {
 		for (int i = 0; i < size; i++) {
 			a[i] = rand.nextInt(maxValue);
 		}
+		return a;
+	}
+
+	private static int[] getShuffledIntArray(int size) {
+		int[] a = new int[size];
+		ArrayList<Integer> list = new ArrayList<>();
+		for (int i = 0; i < size; i++) list.add(i);
+		Collections.shuffle(list);
+		for (int i = 0; i < size; i++) a[i] = list.get(i);
 		return a;
 	}
 
