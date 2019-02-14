@@ -80,20 +80,23 @@ public class SortRunner {
 		isSorted = verifySort(sortedIntegersUsingDefaultSort);
 		displayResults("Integer", "DefaultSort", elapsedTime, size, isSorted);
 
-		// Sort using the following methods, and time and verify each like done above. 
-		// TODO: a simple sort that uses a TreeSet but handles a few duplicates gracefully.
+		startTime = System.currentTimeMillis();
+		TreeSetSort.sort(sortedIntegersUsingTreeSort);
+		elapsedTime = (System.currentTimeMillis() - startTime);
+		isSorted = verifySort(sortedIntegersUsingTreeSort);
+		displayResults("Integer", "TreeSetSort", elapsedTime, size, isSorted);
 
 		startTime = System.currentTimeMillis();
 		QuickSort.sort(sortedIntsUsingQuickSort);
 		elapsedTime = (System.currentTimeMillis() - startTime);
 		isSorted = verifySort(sortedIntsUsingQuickSort);
-		displayResults("Integer", "QuickSort", elapsedTime, size, isSorted);
+		displayResults("int", "QuickSort", elapsedTime, size, isSorted);
 
 		startTime = System.currentTimeMillis();
 		BinaryHeap.sort(sortedIntegersUsingHeapSort);
 		elapsedTime = (System.currentTimeMillis() - startTime);
 		isSorted = verifySort(sortedIntegersUsingHeapSort);
-		displayResults("Integer", "HeapSort", elapsedTime, size, isSorted);
+		displayResults("Integers", "HeapSort", elapsedTime, size, isSorted);
 	}
 	
 
