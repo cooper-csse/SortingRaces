@@ -28,13 +28,16 @@ public class SortRunner {
 		
 		// Test 1: Array of random values.
 		int[] randomIntArray = getRandomIntArray(size, maxValue);
-		runAllSortsForOneArray(randomIntArray, "Random");
+		runAllSortsForOneArray(randomIntArray, " - Random");
 
 		int[] shuffledIntArray = getShuffledIntArray(size);
-		runAllSortsForOneArray(shuffledIntArray, "\nShuffled");
+		runAllSortsForOneArray(shuffledIntArray, "\n - Shuffled");
 
 		int[] almostSortedIntArray = getAlmostSortedIntArray(size);
-		runAllSortsForOneArray(almostSortedIntArray, "\nAlmost Sorted");
+		runAllSortsForOneArray(almostSortedIntArray, "\n - Almost Sorted");
+
+		int[] almostSortedReverseIntArray = getAlmostSortedReverseIntArray(size);
+		runAllSortsForOneArray(almostSortedReverseIntArray, "\n - Almost Sorted Reverse");
 	}
 
 	/**
@@ -162,9 +165,19 @@ public class SortRunner {
 	private static int[] getAlmostSortedIntArray(int size) {
 		int[] a = new int[size];
 		for (int i = 0; i < size; i++) a[i] = i;
-		for (int r = 0; r < size / 100.0; r++) {
-			int index1 = rand.nextInt(size), index2;
-			do index2 = rand.nextInt(size); while (index1 == index2);
+		return swapFewItems(a);
+	}
+
+	private static int[] getAlmostSortedReverseIntArray(int size) {
+		int[] a = new int[size];
+		for (int i = 0; i < size; i++) a[i] = size - i - 1;
+		return swapFewItems(a);
+	}
+
+	private static int[] swapFewItems(int[] a) {
+		for (int r = 0; r < a.length / 100.0; r++) {
+			int index1 = rand.nextInt(a.length), index2;
+			do index2 = rand.nextInt(a.length); while (index1 == index2);
 			int item = a[index1];
 			a[index1] = a[index2];
 			a[index2] = item;
