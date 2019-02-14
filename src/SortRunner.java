@@ -30,8 +30,8 @@ public class SortRunner {
 		int[] randomIntArray = getRandomIntArray(size, maxValue);
 		runAllSortsForOneArray(randomIntArray, " - Random");
 
-		int[] shuffledIntArray = getShuffledIntArray(size);
-		runAllSortsForOneArray(shuffledIntArray, "\n - Shuffled");
+		int[] shuffledUniqueIntArray = getUniqueElementArray(size);
+		runAllSortsForOneArray(shuffledUniqueIntArray, "\n - Shuffled Unique");
 
 		int[] almostSortedIntArray = getAlmostSortedIntArray(size);
 		runAllSortsForOneArray(almostSortedIntArray, "\n - Almost Sorted");
@@ -153,7 +153,13 @@ public class SortRunner {
 		return a;
 	}
 
-	private static int[] getShuffledIntArray(int size) {
+	/**
+	 * Creates and returns a shuffled array of ints 0 to size-1
+	 *
+	 * @param size size of the array
+	 * @return An array of the ints from 0 to size-1, all shuffled
+	 */
+	private static int[] getUniqueElementArray(int size) {
 		int[] a = new int[size];
 		ArrayList<Integer> list = new ArrayList<>();
 		for (int i = 0; i < size; i++) list.add(i);
@@ -162,18 +168,36 @@ public class SortRunner {
 		return a;
 	}
 
+	/**
+	 * Creates and returns an array with ints 0 to size-1 in order with size/100 swaps
+	 *
+	 * @param size the size of the array
+	 * @return An array of the ints from 0 to size-1, with a few swaps
+	 */
 	private static int[] getAlmostSortedIntArray(int size) {
 		int[] a = new int[size];
 		for (int i = 0; i < size; i++) a[i] = i;
 		return swapFewItems(a);
 	}
 
+	/**
+	 * Creates and returns an array with ints size-1 to 0 in order with size/100 swaps
+	 *
+	 * @param size the size of the array
+	 * @return An array of the ints from size-1 to 0, with a few swaps
+	 */
 	private static int[] getAlmostSortedReverseIntArray(int size) {
 		int[] a = new int[size];
 		for (int i = 0; i < size; i++) a[i] = size - i - 1;
 		return swapFewItems(a);
 	}
 
+	/**
+	 * Performs n / 100 swaps on the array
+	 *
+	 * @param a the array
+	 * @return array
+	 */
 	private static int[] swapFewItems(int[] a) {
 		for (int r = 0; r < a.length / 100.0; r++) {
 			int index1 = rand.nextInt(a.length), index2;
@@ -183,17 +207,6 @@ public class SortRunner {
 			a[index2] = item;
 		}
 		return a;
-	}
-
-	/**
-	 * Creates a shuffled random array.
-	 *
-	 * @param size
-	 * @return An array of the ints from 0 to size-1, all shuffled
-	 */
-	private static int[] getUniqueElementArray(int size) {
-		// TODO: implement and call this method.
-		return null;
 	}
 	
 }
