@@ -56,11 +56,6 @@ public class SortRunner {
 	private static void runAllSortsForOneArray(int[] array, String name) {
 		long startTime, elapsedTime;
 		boolean isSorted = false;
-
-		// TODO: Read this.
-		// We prepare the arrays. This can take as long as needed to shuffle items, convert
-		// back and forth from ints to Integers and vice-versa, since you aren't timing this 
-		// part. You are just timing the sort itself.
 		
 		int[] sortedIntsUsingDefaultSort = array.clone();
 		Integer[] sortedIntegersUsingDefaultSort = copyToIntegerArray(array);
