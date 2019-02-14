@@ -11,7 +11,7 @@ import java.util.Random;
  *         Created May 7, 2013.
  */
 public class SortRunner {
-	private static Random rand = new Random(17); // uses a fixed seed for debugging. Remove the parameter later.
+	private static Random rand = new Random(); // uses a fixed seed for debugging. Remove the parameter later.
 	
 	/**
 	 * Starts here.
