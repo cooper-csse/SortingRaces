@@ -16,7 +16,7 @@ public class SortRunner {
 	/**
 	 * Starts here.
 	 *
-	 * @param args
+	 * @param args args
 	 */
 	public static void main(String[] args) {
 		long startTimeFull, elapsedTimeFull;
@@ -51,17 +51,17 @@ public class SortRunner {
 	 * 
 	 * Runs all the specified sorts on the given array and outputs timing results on each.
 	 *
-	 * @param array
+	 * @param array the array to be tested
 	 */
 	private static void runAllSortsForOneArray(int[] array, String name) {
 		long startTime, elapsedTime;
-		boolean isSorted = false;
+		boolean isSorted;
 		
 		int[] sortedIntsUsingDefaultSort = array.clone();
 		Integer[] sortedIntegersUsingDefaultSort = copyToIntegerArray(array);
 		Integer[] sortedIntegersUsingHeapSort = sortedIntegersUsingDefaultSort.clone();
 		Integer[] sortedIntegersUsingTreeSort = sortedIntegersUsingDefaultSort.clone();
-		// No skiplist this term. Integer[] sortedIntegersUsingSkipListSort = sortedIntegersUsingDefaultSort.clone();
+		// No skip-list this term. Integer[] sortedIntegersUsingSkipListSort = sortedIntegersUsingDefaultSort.clone();
 		int[] sortedIntsUsingQuickSort = array.clone();
 
 		int size = array.length;
@@ -138,7 +138,7 @@ public class SortRunner {
 	/**
 	 * Copies from an int array to an Integer array.
 	 *
-	 * @param ints
+	 * @param ints array of ints to be converted
 	 * @return A clone of the primitive int array, but with Integer objects.
 	 */
 	private static Integer[] copyToIntegerArray(int[] ints) {
