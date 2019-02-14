@@ -84,9 +84,12 @@ public class SortRunner {
 		// TODO: a simple sort that uses a TreeSet but handles a few duplicates gracefully. 
 		
 		// TODO: your implementation of quick sort. I suggest putting this in a static method in a Quicksort class.
-		
-		// TODO: your BinaryHeap sort. You can put this sort in a static method in another class. 
-		
+
+		startTime = System.currentTimeMillis();
+		BinaryHeap.sort(sortedIntegersUsingHeapSort);
+		elapsedTime = (System.currentTimeMillis() - startTime);
+		isSorted = verifySort(sortedIntegersUsingHeapSort);
+		displayResults("Integer", "HeapSort", elapsedTime, size, isSorted);
 	}
 	
 
