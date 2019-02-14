@@ -81,9 +81,13 @@ public class SortRunner {
 		displayResults("Integer", "DefaultSort", elapsedTime, size, isSorted);
 
 		// Sort using the following methods, and time and verify each like done above. 
-		// TODO: a simple sort that uses a TreeSet but handles a few duplicates gracefully. 
-		
-		// TODO: your implementation of quick sort. I suggest putting this in a static method in a Quicksort class.
+		// TODO: a simple sort that uses a TreeSet but handles a few duplicates gracefully.
+
+		startTime = System.currentTimeMillis();
+		QuickSort.sort(sortedIntsUsingQuickSort);
+		elapsedTime = (System.currentTimeMillis() - startTime);
+		isSorted = verifySort(sortedIntsUsingQuickSort);
+		displayResults("Integer", "QuickSort", elapsedTime, size, isSorted);
 
 		startTime = System.currentTimeMillis();
 		BinaryHeap.sort(sortedIntegersUsingHeapSort);
