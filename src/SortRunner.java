@@ -96,8 +96,12 @@ public class SortRunner {
 	 * @param a An array to check to see if it is sorted.
 	 */
 	private static boolean verifySort(int[] a) {
-		// TODO: implement this.
-		return false;
+		int previous = Integer.MIN_VALUE;
+		for (int current : a) {
+			if (current < previous) return false;
+			previous = current;
+		}
+		return true;
 	}
 
 	/**
@@ -106,8 +110,12 @@ public class SortRunner {
 	 * @param a An array to check to see if it is sorted.
 	 */
 	private static boolean verifySort(Integer[] a) {
-		// TODO: implement this.
-		return false;
+		Integer previous =  null;
+		for (int current : a) {
+			if (previous != null && current < previous) return false;
+			previous = current;
+		}
+		return true;
 	}
 
 	/**
